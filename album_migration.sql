@@ -1,11 +1,14 @@
-USE bigfoot_test_db;
+USE codeup_test_db;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS albums;
 
-CREATE TABLE users (
-    user_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    username VARCHAR(35) NOT NULL,
-    email VARCHAR(65) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    PRIMARY KEY (user_id)
+CREATE TABLE albums (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    artist VARCHAR(55) NOT NULL,
+    name VARCHAR (55) NOT NULL,
+    release_date VARCHAR(10) NOT NULL,
+    sales DOUBLE,
+    genre VARCHAR (55),
+    PRIMARY KEY (id)
 );
+
