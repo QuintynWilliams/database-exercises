@@ -1,7 +1,5 @@
 USE codeup_test_db;
 
-DROP TABLE IF EXISTS albums;
-
 # TODO: The name of all albums by Pink Floyd.
 SELECT * FROM albums WHERE artist = 'Pink Floyd';
 
