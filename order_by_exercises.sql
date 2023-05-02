@@ -2,41 +2,6 @@ USE employees;
 
 SHOW TABLES;
 
-SELECT * FROM employees WHERE last_name LIKE 'E%';
-
-SELECT * FROM employees WHERE last_name LIKE '%q%';
-
-
-# PART TWO
-SELECT *
-FROM employees
-WHERE first_name = 'Irena'
-   OR first_name = 'Vidya'
-   OR first_name = 'Maya';
-
-SELECT *
-FROM employees
-WHERE (first_name = 'Irena'
-    OR first_name = 'Vidya'
-    OR first_name = 'Maya')
-  AND gender = 'M';
-
-SELECT *
-FROM employees
-WHERE last_name LIKE 'E%'
-   OR last_name LIKE '%E';
-
-SELECT *
-FROM employees
-WHERE last_name LIKE 'E%'
-  AND last_name LIKE '%E';
-
-
-SELECT *
-FROM employees
-WHERE last_name LIKE '%q%'
-  AND last_name NOT LIKE '%qu%';
-
 # TODO: Modify your first query to order by first name. The first result should be Irena Flexer and the last result should be Vidya Awdeh.
 SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY first_name;
 
