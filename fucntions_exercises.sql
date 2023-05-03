@@ -1,19 +1,33 @@
 USE employees;
 
 SHOW TABLES;
+# Lecture Notes
+# # CONCAT concatonates two or more fields into one
+# SELECT CONCAT(first_name, ' ', last_name) FROM employees WHERE first_name = 'Maya';
+#
+# # DATE DIFF displays the difference of two dates in days
+# # Determine length of employement (assuming current employees)
+# SELECT DATEDIFF(NOW(), hire_date) / 365 FROM employees;
+#
+# # Determine age with date now and a birthday value, /365 returns in years
+# SELECT DATEDIFF(NOW(), birth_date) / 365 FROM employees;
 
 # TODO: Modify your first query to order by first name. The first result should be Irena Flexer and the last result should be Vidya Awdeh.
-SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY first_name;
+SELECT CONCAT(first_name, ' ', last_name) FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY first_name;
 
-# TODO: Update the query to order by first name and then last name. The first result should now be Irena Acton and the last should be Vidya Zweizig.
-SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY first_name, last_name;
+# TODO: Find all employees born on Christmas — 842 rows.
+SELECT * FROM employees WHERE MONTH(birth_date) = 12
+                          AND DAY(birth_date) = 25;
 
-# TODO: Change the ORDER BY clause so that you order by last name before first name. Your first result should still be Irena Acton but now the last result should be Maya Zyda.
-SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY last_name, first_name;
+# TODO: Find all employees hired in the 90s and born on Christmas — 362 rows.
+SELECT * FROM employees WHERE (YEAR(hire_date) BETWEEN 1990 AND 2000)
+                          AND (MONTH(birth_date) = 12 AND DAY(birth_date) = 25);
 
-# TODO: Update your queries for employees with 'e' in their last name to sort the results by their employee number. Make sure the employee numbers are in the correct order.
-SELECT * FROM employees WHERE last_name LIKE '%e%' ORDER BY emp_no;
 
-# TODO: Now reverse the sort order for both queries and compare results.
-SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY last_name DESC, first_name;
-SELECT * FROM employees WHERE last_name LIKE '%e%' ORDER BY emp_no DESC;
+# TODO: Change the query for employees hired in the 90s and born on Christmas such that the first result is the oldest employee who was hired last. It should be Khun Bernini.
+SELECT * FROM employees WHERE (YEAR(hire_date) BETWEEN 1990 AND 2000)
+                          AND (MONTH(birth_date) = 12 AND DAY(birth_date) = 25)
+                        ORDER BY birth_date ASC, hire_date DESC;
+
+# TODO: For your query of employees born on Christmas and hired in the 90s, use datediff() to find how many days they have been working at the company (Hint: You might also need to use now() or curdate()).
+SELECT DATEDIFF(NOW(), hire_date) FROM employees;
