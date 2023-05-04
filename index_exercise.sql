@@ -67,3 +67,5 @@ ALTER TABLE albums
 INSERT INTO albums (id, artist, name, release_date, sales, genre)
 VALUES (35, 'Michael Jackson','Thriller',1982,51.20,'Pop');
 
+SHOW INDEXES FROM albums;
+
