@@ -61,21 +61,9 @@ CREATE TABLE users (
     CONSTRAINT users_albums_id_fk FOREIGN KEY (album_id) REFERENCES albums (id)
 );
 
-INSERT INTO users (username, email, password, album_id) VALUES
-    ('john_doe', 'john_doe@example.com', 'password123', 1),
-    ('jane_smith', 'jane_smith@example.com', 'password456', 2),
-    ('sam_jones', 'sam_jones@example.com', 'password789', 3),
-    ('joe_brown', 'joe_brown@example.com', 'password1234', 4),
-    ('mary_white', 'mary_white@example.com', 'password5678', 5),
-    ('david_kim', 'david_kim@example.com', 'password9012', 6),
-    ('lisa_green', 'lisa_green@example.com', 'password3456', 7),
-    ('steve_taylor', 'steve_taylor@example.com', 'password7890', 8),
-    ('amy_harris', 'amy_harris@example.com', 'password12345', 9),
-    ('jack_smith', 'jack_smith@example.com', 'password67890', 10),
-    ('katie_lee', 'katie_lee@example.com', 'password123456', 11),
-    ('mike_johnson', 'mike_johnson@example.com', 'password789012', 12),
-    ('sara_davis', 'sara_davis@example.com', 'password345678', 13),
-    ('chris_wilson', 'chris_wilson@example.com', 'password901234', 14),
-    ('jessica_lee', 'jessica_lee@example.com', 'password567890', 15);
+ALTER TABLE albums
+    ADD CONSTRAINT constraint_name UNIQUE KEY(artist, name);
 
-SELECT * FROM users;
+INSERT INTO albums (id, artist, name, release_date, sales, genre)
+VALUES (35, 'Michael Jackson','Thriller',1982,51.20,'Pop');
+
