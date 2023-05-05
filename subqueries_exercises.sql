@@ -27,10 +27,8 @@ SELECT dept_name FROM departments
             WHERE emp_no IN (
                 SELECT emp_no FROM employees
                     WHERE gender = 'F'
-            )
-    )
-
-
+            ) AND to_date > NOW()
+    );
 
 # TODO: BONUS: Find the first and last name of the employee with the highest salary.
 
