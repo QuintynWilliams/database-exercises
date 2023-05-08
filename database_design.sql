@@ -69,3 +69,27 @@ ALTER TABLE quotes
 #   MANY authors cannot belong to ONE quote
 #   .˙.
 #   ONE to MANY: One author can have MANY quotes
+
+CREATE TABLE topics (
+    id INT NOT NULL AUTO_INCREMENT,
+    topic VARCHAR(70) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO topics (topic)
+VALUES
+    ('Life and death'),
+    ('The world as a stage'),
+    ('Good and evil'),
+    ('Contentment and materialism'),
+    ('Sleep and death'),
+    ('Courage and bravery'),
+    ('Personal responsibility'),
+    ('Love and perception'),
+    ('Standing up for oneself'),
+    ('Moving on and accepting the past'),
+    ('Solitude and isolation');
+
+CREATE TABLE quote_topics ()
+VALUES
+    ;
